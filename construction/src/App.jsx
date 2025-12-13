@@ -5,7 +5,6 @@ import UserLayout from './Components/Layout/UserLayout';
 
 const App = () => {
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<UserLayout />}>
         {/* User Layout */}
@@ -15,7 +14,6 @@ const App = () => {
           {/* Admin Layout */}
           </Route>
       </Routes>
-    </BrowserRouter>
   );
 };
 
