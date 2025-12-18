@@ -5,8 +5,17 @@ import { HiOutlineUser,
     } from "react-icons/hi";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import SearchBar from './SearchBar';
+import CartDrawer from '../Layout/CartDrawer';
+import { useState } from 'react';
 
 const Navbar = () => {
+
+    const [drawerOpen, setDrawerOpen] = useState(false);
+    
+    const toggleCartDrawer = () => {
+        setDrawerOpen(!drawerOpen)
+    };
+
   return (
     <>
     <nav className='container mx-auto flex items-center justify-between py-4 px-6'>
@@ -29,7 +38,9 @@ const Navbar = () => {
         {/* Right Icons */}
         <div className='flex items-center space-x-4'>
             <Link to="/profile" className='hover:text-black'><HiOutlineUser className='h-6 w-6 text-gray-700' /></Link>
-            <button className='relative hover:text-black'><HiOutlineShoppingBag className='h-6 w-6 text-gray-700' />
+            <button 
+            onClick={toggleCartDrawer}
+            className='relative hover:text-black'><HiOutlineShoppingBag className='h-6 w-6 text-gray-700 hover:cursor-pointer' />
                 <span className='absolute -top-1 bg-rabbit text-white text-xs rounded-full px-2 py-0.5'>4</span>
             </button>
             {/* Search Component */}
@@ -39,6 +50,8 @@ const Navbar = () => {
     
 
     </nav>
+    {/* Cartdrawer */}
+    <CartDrawer drawerOpen={drawerOpen} toggleCartDrawer={toggleCartDrawer}/>
     </>
   )
 }
