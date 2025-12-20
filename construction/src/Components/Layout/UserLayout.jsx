@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../Common/Header'
 import Footer from '../Common/Footer'
+import Home from '../../Pages/Home'
 
 const UserLayout = () => {
   return (
@@ -8,6 +9,7 @@ const UserLayout = () => {
         {/* Header */}
         <Header />
         {/* Main Content */}
+        <Home />
         {/* Footer */}
         <Footer />
     </>
