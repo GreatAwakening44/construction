@@ -1,8 +1,15 @@
 import React from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const NewArrival = () => {
+    const scrollRef = useRef(null);
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(false);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
     const newArrivals = [
         {
             _id: "1",
@@ -93,7 +100,29 @@ const NewArrival = () => {
             ],
         },
 
-    ]
+    ];
+
+ //Update scroll buttons
+ const updateScrollButtons = () => {
+    const container = scrollRef.current;
+
+    if (container) {
+        const leftScroll = container.scrollLeft;
+        setCanScrollLeft;
+    }
+    console.log({
+        scrollLeft: container.scrollLeft,
+        clientWidth: container.clientWidth,
+        containerScrollWIdth: container.scrollWidth,
+    });
+ };
+
+ useEffect(() => {
+    const container = scrollRef.current;
+    if (container) {
+        container.addEventListener("scroll", updateScrollButtons)
+    }
+ })
   return (
     <section>
         <div className='container mx-auto text-center mb-10 relative'>
@@ -114,12 +143,13 @@ const NewArrival = () => {
         </div>
 
         {/* Scrollable Cotent */}
-        <div className='container mx-auto overflow-x-scroll flex space-x-6 relative'>
+        <div ref={scrollRef} className='container mx-auto overflow-x-scroll flex space-x-6 relative'>
             {newArrivals.map((product) => (
-                <div key={product._id}>
+                <div key={product._id} className='min-w-[100%] sm:min-w-[50%] lg:min-w-[30%] relative'>
                     <img 
                         src={product.images[0]?.url}
                         alt={product.images[0]?.altText || product.name} 
+                        className='w-full h-[500px] object-cover rounded-lg'
                     />
                     <div className='absolute bottom-0 left-0 right-0 bg-opacity-50 backdrop-blur-md
                     text-white p-4 rounded-b-lg'>
