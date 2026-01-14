@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const NewArrival = () => {
@@ -9,7 +10,7 @@ const NewArrival = () => {
             price: 120,
             images: [
                 {
-                    url: "https://picsum.photos/500/500/random=1",
+                    url: "https://picsum.photos/500/500?random=1",
                     altText: "Stylish Jacket",
                 },
             ],
@@ -20,7 +21,7 @@ const NewArrival = () => {
             price: 120,
             images: [
                 {
-                    url: "https://picsum.photos/500/500/random=2",
+                    url: "https://picsum.photos/500/500?random=2",
                     altText: "Stylish Jacket",
                 },
             ],
@@ -31,7 +32,7 @@ const NewArrival = () => {
             price: 120,
             images: [
                 {
-                    url: "https://picsum.photos/500/500/random=3",
+                    url: "https://picsum.photos/500/500?random=3",
                     altText: "Stylish Jacket",
                 },
             ],
@@ -42,7 +43,7 @@ const NewArrival = () => {
             price: 120,
             images: [
                 {
-                    url: "https://picsum.photos/500/500/random=4",
+                    url: "https://picsum.photos/500/500?random=4",
                     altText: "Stylish Jacket",
                 },
             ],
@@ -53,7 +54,7 @@ const NewArrival = () => {
             price: 120,
             images: [
                 {
-                    url: "https://picsum.photos/500/500/random=5",
+                    url: "https://picsum.photos/500/500?random=5",
                     altText: "Stylish Jacket",
                 },
             ],
@@ -64,7 +65,7 @@ const NewArrival = () => {
             price: 120,
             images: [
                 {
-                    url: "https://picsum.photos/500/500/random=6",
+                    url: "https://picsum.photos/500/500?random=6",
                     altText: "Stylish Jacket",
                 },
             ],
@@ -75,7 +76,7 @@ const NewArrival = () => {
             price: 120,
             images: [
                 {
-                    url: "https://picsum.photos/500/500/random=7",
+                    url: "https://picsum.photos/500/500?random=7",
                     altText: "Stylish Jacket",
                 },
             ],
@@ -86,7 +87,7 @@ const NewArrival = () => {
             price: 120,
             images: [
                 {
-                    url: "https://picsum.photos/500/500/random=8",
+                    url: "https://picsum.photos/500/500?random=8",
                     altText: "Stylish Jacket",
                 },
             ],
@@ -112,7 +113,7 @@ const NewArrival = () => {
             </div>
         </div>
 
-        {/* Scrollable Content */}
+        {/* Scrollable Cotent */}
         <div className='container mx-auto overflow-x-scroll flex space-x-6 relative'>
             {newArrivals.map((product) => (
                 <div key={product._id}>
@@ -120,6 +121,13 @@ const NewArrival = () => {
                         src={product.images[0]?.url}
                         alt={product.images[0]?.altText || product.name} 
                     />
+                    <div className='absolute bottom-0 left-0 right-0 bg-opacity-50 backdrop-blur-md
+                    text-white p-4 rounded-b-lg'>
+                        <Link to={`/product/${product._id}`} className="block">
+                        <h4 className='font-medium'>{product.name}</h4>
+                        <p className='mt-1'>${product.price}</p>
+                        </Link>
+                    </div>
                 </div>
             ))}
         </div>
