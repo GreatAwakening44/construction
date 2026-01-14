@@ -24,6 +24,23 @@ const Gender = () => {
 
 
             </div>
+            {/* Mens Collection here*/}
+            <div className='relative flex-1'>
+                <img src={mensCollectionImage}
+                alt='men`s Collection'
+                className='w-full h-[700px] object-cover'
+                />
+                <div className='absolute bottom-0 left-8 bg-white bg-opacity-90 p-4'>
+                    <h2 className='text-2xl font-boldtext-gray-900 mb-3'>Women's Collection</h2>
+                    <Link
+                    to="/collection/all?gender=Men"
+                    className="text-gray-900 underline"
+                    >Shop Now</Link>
+
+                </div>
+
+
+            </div>
 
         </div>
     </section>
