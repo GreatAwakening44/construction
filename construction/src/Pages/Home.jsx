@@ -1,12 +1,13 @@
 import React from 'react'
 import Hero from '../Components/Layout/Hero'
-import { GenderCollectionSection } from '../Components/Products/GenderCollectionSection'
+import { TbGridGoldenratio } from 'react-icons/tb'
+import Gender from '../Components/Products/Gender'
 
 const Home = () => {
   return (
     <div>
         <Hero />
-        <GenderCollectionSection />
+        <Gender />
     </div>
   )
 }
