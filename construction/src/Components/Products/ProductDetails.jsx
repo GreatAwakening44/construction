@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from 'react'
 
 const selectedProduct = {
     name: "Stylish Jacket",
@@ -24,6 +25,14 @@ const selectedProduct = {
 }
 
 const ProductDetails = () => {
+    const [mainImage, setMainImage] = useState("");
+
+    useEffect(() => {
+        if(selectedProduct?.images?.length > 0) {
+            setMainImage(selectedProduct.images[0].url);
+        }
+    }, [selectedProduct]);
+
   return (
     <div className='p-6'>
         <div className='max-w-6xl mx-auto bg-white p-8 rounded-lg'>
@@ -36,13 +45,16 @@ const ProductDetails = () => {
                         src={image.url} 
                         alt={image.altText || `Thumbnail ${index}`} 
                         className='w-20 h-20 object-cover rounded-lg cursor-pointer border'
+                        onClick={() => setMainImage(image.url)}
                         />
                     ))}
                 </div>
                 { /* Main Image */}
                 <div className='md:w-1/2'>
                     <div className='mb-4'>
-                        <img src={selectedProduct.images[0]?.url} alt="Main Product"
+                        <img 
+                        src={mainImage} 
+                        alt="Main Product"
                         className='w-full h-auto object-cover rounded-lg'/>
                     </div>
                 </div>
