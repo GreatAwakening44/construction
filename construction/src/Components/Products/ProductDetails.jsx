@@ -227,7 +227,7 @@ const similarProducts = [
                 <h2 className='text-2xl text-center font-medium mb-4'>
                     You May Also Like
                 </h2>
-                <ProductGrid product={similarProducts}/>
+                <ProductGrid products={similarProducts}/>
             </div>
         </div>
     </div>
