@@ -5,6 +5,7 @@ import Gender from '../Components/Products/Gender'
 import NewArrival from '../Components/Products/NewArrival'
 import ProductDetails from '../Components/Products/ProductDetails'
 import Placeholder from '../Components/Products/Placeholder'
+import FeauturedCollection from '../Components/Products/FeauturedCollection'
 
 const Home = () => {
   return (
@@ -25,6 +26,8 @@ const Home = () => {
           </h2>
           <Placeholder />
         </div>
+
+        <FeauturedCollection />
     </div>
   )
 }
