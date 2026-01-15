@@ -11,7 +11,9 @@ const Login = () => {
                 <div className="flex justify-center mb-6">
                     <h2 className="text-xl font-medium">Rabbit</h2>
                 </div>
-                <h2 className=''></h2>
+                <h2 className='text-2xl font-bold text-center mb-6'>
+                    Hey there!
+                </h2>
             </form>
         </div>
     </div>
