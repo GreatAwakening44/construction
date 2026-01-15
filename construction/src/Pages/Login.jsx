@@ -14,6 +14,20 @@ const Login = () => {
                 <h2 className='text-2xl font-bold text-center mb-6'>
                     Hey there!
                 </h2>
+                <p className='text-center mb-6'>Enter your username and password to login</p>
+                <div className='mb-4'>
+                    <label className='block text-sm font-semibold mb-2'>Email</label>
+                    <input 
+                    type='email'
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)}
+                    className='w-full p-2 border rounded'
+                    placeholder='Enter your email address'
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className='block text-sm font-semibold mb-2'>Password</label>
+                </div>
             </form>
         </div>
     </div>
