@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
+import ProductGrid from './ProductGrid';
 
 const selectedProduct = {
     name: "Stylish Jacket",
@@ -25,6 +26,34 @@ const selectedProduct = {
 
 }
 
+{/* Similar Products*/}
+
+const similarProducts = [
+    {
+        _id: 1,
+        name: "Product 1",
+        price: 100,
+        images: [{ url: "https://picsum.photos/500/500?random=6"}]
+    },
+    {
+        _id: 2,
+        name: "Product 2",
+        price: 100,
+        images: [{ url: "https://picsum.photos/500/500?random=7"}]
+    },
+    {
+        _id: 3,
+        name: "Product 3",
+        price: 100,
+        images: [{ url: "https://picsum.photos/500/500?random=8"}]
+    },
+    {
+        _id: 4,
+        name: "Product 4",
+        price: 100,
+        images: [{ url: "https://picsum.photos/500/500?random=9"}]
+    }
+]
 
     {/* Product Details */}
     const ProductDetails = () => {
@@ -194,7 +223,12 @@ const selectedProduct = {
                     </div>
                 </div>
             </div>
-
+            <div className="mt-20">
+                <h2 className='text-2xl text-center font-medium mb-4'>
+                    You May Also Like
+                </h2>
+                <ProductGrid product={similarProducts}/>
+            </div>
         </div>
     </div>
   )
