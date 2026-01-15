@@ -6,6 +6,7 @@ import NewArrival from '../Components/Products/NewArrival'
 import ProductDetails from '../Components/Products/ProductDetails'
 import Placeholder from '../Components/Products/Placeholder'
 import FeauturedCollection from '../Components/Products/FeauturedCollection'
+import FeaturedSection from '../Components/Products/FeaturedSection'
 
 const Home = () => {
   return (
@@ -28,6 +29,7 @@ const Home = () => {
         </div>
 
         <FeauturedCollection />
+        <FeaturedSection />
     </div>
   )
 }
