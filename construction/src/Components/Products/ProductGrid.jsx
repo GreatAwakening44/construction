@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ProductGrid = ({ products }) => {
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'>
-        {products.map((product, index) => {
+        {products.map((product, index) => (
             <Link key={index}
             to={`/product/${product._id}`}
             className="block">
@@ -14,9 +14,11 @@ const ProductGrid = ({ products }) => {
                         alt={product.images[0].altText || product.name}
                         className='w-full h-full object-cover rounded-lg'/>
                     </div>
+                    <h3 className="text-lg font-medium">{product.name}</h3>
+                    <p className="text-gray-600">${product.price}</p>
                 </div>
             </Link>
-        })}
+        ))}
 
     </div>
   )
