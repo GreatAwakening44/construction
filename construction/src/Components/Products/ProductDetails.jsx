@@ -50,8 +50,17 @@ const selectedProduct = {
     {/* Handle Add To Cart */}
     const handleAddToCart = () => {
         if (!selectedSize || !selectedColor) {
-            toast.error("Please select a size and color")
+            toast.error("Please select a size and color before adding to cart.", {
+                duration: 1000,
+            });
+            return;
         } 
+
+        setIsButtonDisabled(true);
+
+        setTimeout(() => {
+            toast.success("Product added to cart successfully")
+        })
     }
 
   return (
