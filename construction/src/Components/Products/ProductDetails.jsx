@@ -59,9 +59,14 @@ const selectedProduct = {
         setIsButtonDisabled(true);
 
         setTimeout(() => {
-            toast.success("Product added to cart successfully")
-        })
-    }
+            toast.success("Product added to cart successfully", {
+                duration: 1000,
+            });
+            setIsButtonDisabled(false)
+
+    }, 500)
+
+}
 
   return (
     <div className='p-6'>
@@ -163,8 +168,13 @@ const selectedProduct = {
                     {/* ADD TO CART OH */}
                     <button
                     onClick={handleAddToCart}
-                    className='bg-black text-white py-2 px-6 rounded w-full mb-4'>
-                        ADD TO CART
+                    disabled={isButtonDisabled}
+                    className={`bg-black text-white py-2 px-6 rounded w-full mb-4 ${
+                        isButtonDisabled
+                        ? "cursor-not-allowed opacity-50"
+                        : "hover:bg-gray-900"
+                    }`}>
+                        {isButtonDisabled ? "Adding.." : "ADD TO CART"}
                     </button>
 
                     <div className='mt-10 text-gray-700'>
