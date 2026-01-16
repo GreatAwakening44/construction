@@ -23,8 +23,10 @@ const CollectionPage = () => {
         //Add event listener for clicks
         document.addEventListener("mousedown", handleClickOutside);
         // clean event listener
-        document.removeEventListener("mousedown", handleClickOutside)
-    });
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside)
+        }
+    }, []);
 
     useEffect(() => {
         setTimeout(() => {
@@ -80,7 +82,7 @@ const CollectionPage = () => {
 
         {/* Filter Sidebar*/}
         <div ref={sidebarRef}
-        className={`${isSidebarOpen ? "translate-x-0" : "translate-x-full"}`}>
+        className={`${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
             <FilterSidebar />
         </div>
 
