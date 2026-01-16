@@ -42,7 +42,7 @@ const Login = () => {
                 hover:bg-gray-800 transition">Sign In</button>
                 <p className="mt-6 text-center text-sm">Don't have an account?
                     <Link to="/register"
-                    className="text-blue-500">Register</Link>
+                    className="text-blue-500"> Register</Link>
                 </p>
             </form>
         </div>
