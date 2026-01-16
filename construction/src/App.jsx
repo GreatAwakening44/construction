@@ -5,6 +5,7 @@ import { Toaster } from 'sonner';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
+import Profile from './Pages/Profile.JSX';
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
             </Route>
               <Route path="/login" element={<Login />}/>
               <Route path="/register" element={<Register />}/>
+              <Route path="/profile" element={<Profile />}/>
               
             
 
