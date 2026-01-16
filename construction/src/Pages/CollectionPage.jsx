@@ -71,6 +71,7 @@ const CollectionPage = () => {
             setProducts(fetchedProducts);
         }, 1000)
     })
+
   return (
     <div className='flex flex-col lg:flex-row'>
         {/* Mobile filter button */}
@@ -82,7 +83,8 @@ const CollectionPage = () => {
 
         {/* Filter Sidebar*/}
         <div ref={sidebarRef}
-        className={`${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
+        className={`${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} fixed inset-y-0 z-50
+        left-0 w-64 bg-white overflow-y-auto transition-transform duration-300 lg:static lg:translate-x-0`}>
             <FilterSidebar />
         </div>
 
