@@ -13,6 +13,11 @@ const Register = () => {
         e.preventDefault();
         setIsButtonDisabled(true)
         console.log("User Registered:", { name, email, password });
+
+        //Simulating API Call
+        setTimeout(() => {
+            setIsButtonDisabled(false);
+        }, 2000)
     };
 
   return (
