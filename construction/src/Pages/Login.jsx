@@ -6,10 +6,17 @@ import login from "../assets/login.webp"
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setIsButtonDisabled(true);
         console.log("User Login:", { email, password });
+
+        //Simulating API call
+        setTimeout(() => {
+            setIsButtonDisabled(false);
+        }, 2000)
     };
 
   return (
@@ -45,10 +52,14 @@ const Login = () => {
                     className='w-full p-2 border rounded'
                     placeholder='Enter your password'/>
                 </div>
-                <button 
+                <button
+                onClick={handleSubmit}
+                disabled={isButtonDisabled}
                 type='submit'
-                className="w-full bg-black text-white p-2 rounded-lg font-semibold
-                hover:bg-gray-800 transition">Sign In</button>
+                className={`w-full bg-black text-white p-2 rounded-lg font-semibold
+                hover:bg-gray-800 transition ${isButtonDisabled
+                        ? "cursor-not-allowed opacity-50"
+                        : "hover:bg-gray-900"}`}>{isButtonDisabled ? "Signing In.." : "Sign In"}</button>
                 <p className="mt-6 text-center text-sm">Don't have an account?
                     <Link to="/register"
                     className="text-blue-500"> Register</Link>
