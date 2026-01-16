@@ -78,7 +78,7 @@ const CollectionPage = () => {
         <button 
         onClick={toggleSidebar}
         className='lg:hidden border p-2 flex justify-center items-center'>
-            <FaFilter className='mr-2'/> Filters
+            <FaFilter className='mr-2'/>Filters
         </button>
 
         {/* Filter Sidebar*/}
@@ -87,7 +87,10 @@ const CollectionPage = () => {
         left-0 w-64 bg-white overflow-y-auto transition-transform duration-300 lg:static lg:translate-x-0`}>
             <FilterSidebar />
         </div>
-
+        <div className='flex-grow p-4'>
+            <h2 className='text-2xl uppercase mb-4'>All Collection</h2>
+            {/* Sort Options */}
+        </div>
     </div>
   )
 }
