@@ -3,6 +3,7 @@ import MyOrdersPage from './MyOrdersPage'
 
 
 
+
 const Profile = () => {
   return (
     <div className='min-h-screen flex flex-col'>
@@ -16,6 +17,8 @@ const Profile = () => {
                         Logout
                     </button>
                 </div>
+
+                {/* Right section: Orders table */}
                 <div className="w-full md:w-2/3 lg:w-3/4">
                     <MyOrdersPage />
                 </div>
