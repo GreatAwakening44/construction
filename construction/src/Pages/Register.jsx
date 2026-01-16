@@ -1,24 +1,33 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import login from "../assets/login.webp"
+import register from "../assets/register.webp"
 
 const Register = () => {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("User Registered:", { name, email, password });
+    };
+
   return (
     <div className='flex'>
         <div className="w-full md:w-1/2 flex-col justify-center 
         items-center p-8 md:p-12">
-            <form action="/" className="w-full max-w-md bg-gray-100 p-8 rounded-lg border shadow-sm">
+            <form
+            onSubmit={handleSubmit}
+            action="/" 
+            className="w-full max-w-md bg-gray-100 p-8 rounded-lg border shadow-sm">
                 <div className="flex justify-center mb-6">
                     <h2 className="text-xl font-medium">Rabbit</h2>
                 </div>
                 <h2 className='text-2xl font-bold text-center mb-6'>
                     Hey there!
                 </h2>
-                <p className='text-center mb-6'>Enter your username and password to login</p>
+                <p className='text-center mb-6'>Enter your details to register</p>
                 <div className='mb-4'>
                     <label className='block text-sm font-semibold mb-2'>Name</label>
                     <input 
@@ -52,7 +61,7 @@ const Register = () => {
                 className="w-full bg-black text-white p-2 rounded-lg font-semibold
                 hover:bg-gray-800 transition">Sign Up</button>
                 <p className="mt-6 text-center text-sm">Have an account?
-                    <Link to="/login"
+                    <Link to="/profile"
                     className="text-blue-500"> Login</Link>
                 </p>
             </form>
