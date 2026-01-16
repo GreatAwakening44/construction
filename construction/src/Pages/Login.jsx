@@ -53,13 +53,12 @@ const Login = () => {
                     placeholder='Enter your password'/>
                 </div>
                 <button
-                onClick={handleSubmit}
                 disabled={isButtonDisabled}
                 type='submit'
                 className={`w-full bg-black text-white p-2 rounded-lg font-semibold
-                hover:bg-gray-800 transition ${isButtonDisabled
-                        ? "cursor-not-allowed opacity-50"
-                        : "hover:bg-gray-900"}`}>{isButtonDisabled ? "Signing In.." : "Sign In"}</button>
+                transition ${isButtonDisabled
+                        ? "cursor-not-allowed opacity-50 bg-gray-400"
+                        : "hover:bg-gray-800"}`}>{isButtonDisabled ? "Signing In.." : "Sign In"}</button>
                 <p className="mt-6 text-center text-sm">Don't have an account?
                     <Link to="/register"
                     className="text-blue-500"> Register</Link>

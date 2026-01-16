@@ -7,9 +7,11 @@ const Register = () => {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
+    const [isButtonDisabled, setIsButtonDisabled] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setIsButtonDisabled(true)
         console.log("User Registered:", { name, email, password });
     };
 
@@ -56,10 +58,13 @@ const Register = () => {
                     className='w-full p-2 border rounded'
                     placeholder='Enter your password'/>
                 </div>
-                <button 
+                <button
+                disabled={isButtonDisabled}
                 type='submit'
-                className="w-full bg-black text-white p-2 rounded-lg font-semibold
-                hover:bg-gray-800 transition">Sign Up</button>
+                className={`w-full bg-black text-white p-2 rounded-lg font-semibold
+                transition ${isButtonDisabled
+                        ? "cursor-not-allowed opacity-50 bg-gray-400"
+                        : "hover:bg-gray-800"}`}>{isButtonDisabled ? "Registering.." : "Sign Up"}</button>
                 <p className="mt-6 text-center text-sm">Have an account?
                     <Link to="/profile"
                     className="text-blue-500"> Login</Link>
