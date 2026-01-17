@@ -1,6 +1,7 @@
 // This is the checkout page that shows you details of your products and kets you make payments.
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const cart = {
     products: [
@@ -66,6 +67,67 @@ export const Checkout = () => {
                         className='w-full p-2 border rounded'
                         required/>
                     </div>
+
+                    <div>
+                        <label className='block text-gray-700'>Last Name</label>
+                        <input
+                        type='text'
+                        value={shippingAddress.lastName}
+                        onChange={(e) => setShippingAddress({
+                            ...shippingAddress, 
+                            lastName: e.target.value,
+
+                        })
+                    }
+                        className='w-full p-2 border rounded'
+                        required/>
+                    </div>
+                </div>
+
+                <div className='mb-4'>
+                    <label className='block text-gray-700'>Address</label>
+                    <input 
+                    type='text'
+                    value={shippingAddress.address}
+                    onChange={(e)=> 
+                        setShippingAddress({
+                            ...shippingAddress, address: e.target.value,
+                        })
+                    }
+                    className='w-full p-2 border rounded'
+                    required/>
+                </div>
+                <div className='mb-4 grid grid-cols-2 gap-4'>
+                    <div>
+                        <label className='block text-gray-700'>City</label>
+                        <input
+                        type='text'
+                        value={shippingAddress.firstName}
+                        onChange={(e) => setShippingAddress({
+                            ...shippingAddress, 
+                            firstName: e.target.value,
+
+                        })
+                    }
+                        className='w-full p-2 border rounded'
+                        required/>
+                    </div>
+
+                    <div>
+                        <label className='block text-gray-700'>Postal Code</label>
+                        <input
+                        type='text'
+                        value={shippingAddress.lastName}
+                        onChange={(e) => setShippingAddress({
+                            ...shippingAddress, 
+                            lastName: e.target.value,
+
+                        })
+                    }
+                        className='w-full p-2 border rounded'
+                        required/>
+                    </div>
+
                 </div>
             </form>
         </div>
