@@ -7,6 +7,7 @@ import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Profile from './Pages/Profile.JSX';
 import CollectionPage from './Pages/CollectionPage';
+import ProductDetails from './Components/Products/ProductDetails';
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
               <Route path="/register" element={<Register />}/>
               <Route path="/profile" element={<Profile />}/>
               <Route path="/collection/men" element={<CollectionPage />}/>
+              <Route path='product/:id' element={<ProductDetails />}/>
               
             
 
