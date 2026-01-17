@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import ProductGrid from './ProductGrid';
 
+
+{/* This is that part of the main page that has images.*/}
+
 const selectedProduct = {
     name: "Stylish Jacket",
     price: 120,

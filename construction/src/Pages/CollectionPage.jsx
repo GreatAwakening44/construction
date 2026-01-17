@@ -60,13 +60,31 @@ const CollectionPage = () => {
     },
     {
         _id: 8,
-        name: "Product 3",
+        name: "Product 5",
+        price: 100,
+        images: [{ url: "https://picsum.photos/500/500?random=6"}]
+    },
+    {
+        _id: 6,
+        name: "Product 6",
+        price: 100,
+        images: [{ url: "https://picsum.photos/500/500?random=4"}]
+    },
+    {
+        _id: 7,
+        name: "Product 7",
+        price: 100,
+        images: [{ url: "https://picsum.photos/500/500?random=5"}]
+    },
+    {
+        _id: 8,
+        name: "Product 8",
         price: 100,
         images: [{ url: "https://picsum.photos/500/500?random=6"}]
     },
     {
         _id: 9,
-        name: "Product 4",
+        name: "Product 9",
         price: 100,
         images: [{ url: "https://picsum.photos/500/500?random=7"}]
     }
