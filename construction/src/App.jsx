@@ -8,6 +8,7 @@ import Register from './Pages/Register';
 import Profile from './Pages/Profile.JSX';
 import CollectionPage from './Pages/CollectionPage';
 import ProductDetails from './Components/Products/ProductDetails';
+import { Checkout } from './Components/Cart/Checkout';
 
 
 const App = () => {
@@ -23,7 +24,8 @@ const App = () => {
               <Route path="/register" element={<Register />}/>
               <Route path="/profile" element={<Profile />}/>
               <Route path="/collection/men" element={<CollectionPage />}/>
-              <Route path='product/:id' element={<ProductDetails />}/>
+              <Route path='product/:id' element={<ProductDetails />} />
+              <Route path='/checkout' element={<Checkout />} />
               
             
 
