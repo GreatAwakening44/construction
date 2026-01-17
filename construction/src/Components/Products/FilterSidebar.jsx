@@ -1,10 +1,11 @@
 import React from 'react'
-import { useSearchParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect, } from 'react';
 
 const FilterSidebar = () => {
     const [searchParams, setSearchParams] = useSearchParams();
-    const [filter, setFilters] = useState({
+    const navigate = useNavigate();
+    const [filters, setFilters] = useState({
         category: "",
         gender: "",
         color: "",
@@ -63,8 +64,8 @@ const FilterSidebar = () => {
             gender: params.gender || "",
             color: params.color || "",
             size: params.size ? params.size.split(",") : [],
-            material: params.material ? params.size.split(",") : [],
-            brand: params.brand ? params.size.split(",") : [],
+            material: params.material ? params.material.split(",") : [],
+            brand: params.brand ? params.brand.split(",") : [],
             minPrice: params.minPrice || 0,
             maxPrice: params.maxPrice || 100,
         });
@@ -87,10 +88,33 @@ const FilterSidebar = () => {
         }
 
         setFilters(newFilters);
-        console.log(newFilters);
+        updateURLParams(newFilters);
     };
 
+    const updateURLParams = (newFilters) => {
+        const params = new URLSearchParams();
 
+        Object.keys(newFilters).forEach((key) => {
+            if(Array.isArray(newFilters[key]) && newFilters[key].length > 0) {
+                params.append(key, newFilters[key].join(","));
+            } else if (newFilters[key]) {
+                params.append(key, newFilters[key])
+            }
+        });
+
+        setSearchParams(params) 
+        // navigate(`?${params.toString}`)
+        // ?category=Bottom+Wear&size=XS
+    };
+
+    const handlePriceChange = (e) => {
+        const newPrice = e.target.value;
+        setPriceRange([0, newPrice])
+        const newFilters = {...filters, minPrice: 0, maxPrice: newPrice};
+        setFilters(filters);
+        updateURLParams(newFilters);
+
+    };
 
   return (
     <div className='p-4'>
@@ -106,6 +130,7 @@ const FilterSidebar = () => {
                     type="radio"
                     name="category"
                     value={category}
+                    checked={filters.category === category}
                     onChange={handleFiterChange}
                     className='mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300' />
                     <span className='text-gray-700'>{category}</span>
@@ -121,8 +146,9 @@ const FilterSidebar = () => {
                 className='flex items-center mb-1'>
                     <input 
                     type="radio"
-                    name="genders"
+                    name="gender"
                     value={gender}
+                    checked={filters.gender === gender}
                     onChange={handleFiterChange}
                     className='mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300' />
                     <span className='text-gray-700'>{gender}</span>
@@ -156,6 +182,7 @@ const FilterSidebar = () => {
                     type='checkbox'
                     name='size'
                     value={size}
+                    checked={filters.size.includes(size)}
                     onChange={handleFiterChange}
                     className='mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300' />
                     <span className='text-gray-700'>{size}</span>
@@ -172,6 +199,7 @@ const FilterSidebar = () => {
                     type='checkbox'
                     name='material'
                     value={material}
+                    checked={filters.material.includes(material)}
                     onChange={handleFiterChange}
                     className='mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300' />
                     <span className='text-gray-700'>{material}</span>
@@ -188,6 +216,7 @@ const FilterSidebar = () => {
                     type='checkbox'
                     name='brand'
                     value={brand}
+                    checked={filters.brand.includes(brand)}
                     onChange={handleFiterChange}
                     className='mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300' />
                     <span className='text-gray-700'>{brand}</span>
@@ -205,6 +234,8 @@ const FilterSidebar = () => {
         name='priceRange'
         min={0}
         max={100} 
+        value={priceRange[1]}
+        onChange={handlePriceChange}
         className='w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer'/>
         <div className='flex justify-between text-gray-600 mt-2'>
             <span>$0</span>
