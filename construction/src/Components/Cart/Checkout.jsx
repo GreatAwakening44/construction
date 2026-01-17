@@ -97,15 +97,16 @@ export const Checkout = () => {
                     className='w-full p-2 border rounded'
                     required/>
                 </div>
+                {/* City and Postal codes. "e" stands for events, where you are expecting a change of state.*/}
                 <div className='mb-4 grid grid-cols-2 gap-4'>
                     <div>
                         <label className='block text-gray-700'>City</label>
                         <input
                         type='text'
-                        value={shippingAddress.firstName}
+                        value={shippingAddress.city}
                         onChange={(e) => setShippingAddress({
                             ...shippingAddress, 
-                            firstName: e.target.value,
+                            city: e.target.value,
 
                         })
                     }
@@ -117,18 +118,19 @@ export const Checkout = () => {
                         <label className='block text-gray-700'>Postal Code</label>
                         <input
                         type='text'
-                        value={shippingAddress.lastName}
+                        value={shippingAddress.postalCode}
                         onChange={(e) => setShippingAddress({
                             ...shippingAddress, 
-                            lastName: e.target.value,
+                            postalCode: e.target.value,
 
                         })
                     }
                         className='w-full p-2 border rounded'
                         required/>
                     </div>
-
                 </div>
+
+
             </form>
         </div>
     </div>
