@@ -9,6 +9,7 @@ import Profile from './Pages/Profile.JSX';
 import CollectionPage from './Pages/CollectionPage';
 import ProductDetails from './Components/Products/ProductDetails';
 import { Checkout } from './Components/Cart/Checkout';
+import OrderConfirmationPage from './Pages/OrderConfirmationPage';
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
               <Route path="/collection/men" element={<CollectionPage />}/>
               <Route path='product/:id' element={<ProductDetails />} />
               <Route path='/checkout' element={<Checkout />} />
+              <Route path='/order-confirmation' element={<OrderConfirmationPage />}/>
               
             
 

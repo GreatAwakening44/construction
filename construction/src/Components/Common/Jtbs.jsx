@@ -1,7 +1,7 @@
 // This is the checkout page that shows you details of your products and kets you make payments.
 
 {/*
-    
+
 import React from 'react';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
@@ -54,6 +54,8 @@ const handlePaymentSuccess = (details) => {
   return (
     <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto py-10 px-6 tracking-tighter'>
         {/* This is the left section */}
+
+    {/*
         <div className='bg-white rounded-lg p-6'>
             <h2 className='text-2xl uppercase mb-6'>Checkout</h2>
             <form onSubmit={handleCreateCheckout}>
@@ -114,6 +116,9 @@ const handlePaymentSuccess = (details) => {
                     required/>
                 </div>
                 {/* City and Postal codes. "e" stands for events, where you are expecting a change of state.*/}
+
+     {/*
+
                 <div className='mb-4 grid grid-cols-2 gap-4'>
                     <div>
                         <label className='block text-gray-700'>City</label>
@@ -173,6 +178,8 @@ const handlePaymentSuccess = (details) => {
                 </div>
 
                 {/* Checkout Button */}
+
+    {/*
                 <div className='mt-6'>
                     {!checkoutId ? (
                         <button type='submit'
@@ -182,6 +189,7 @@ const handlePaymentSuccess = (details) => {
                         <div>
                             <h3 className='text-lg mb-4'>Pay with Paypal</h3>
                             {/* Paypal Component Button*/}
+    {/*
                             <PaypalButton amount={cart.totalPrice}
                             onSuccess={handlePaymentSuccess}
                             onError={(err) => toast.error("Payment failed. Try again", {
@@ -200,4 +208,3 @@ const handlePaymentSuccess = (details) => {
 }
 
 
-*/}
