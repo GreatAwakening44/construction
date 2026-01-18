@@ -1,7 +1,9 @@
 // This is the checkout page that shows you details of your products and kets you make payments.
-import React from 'react'
+import React from 'react';
+import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import PaypalButton from './PaypalButton';
 
 const cart = {
     products: [
@@ -38,7 +40,7 @@ export const Checkout = () => {
 
 const handleCreateCheckout = (e) => {
     e.preventDefault();
-    setCheckoutId(123);
+    // setCheckoutId(123);
 }
 
   return (
@@ -172,6 +174,13 @@ const handleCreateCheckout = (e) => {
                         <div>
                             <h3 className='text-lg mb-4'>Pay with Paypal</h3>
                             {/* Paypal Component*/}
+                            <PaypalButton amount={100}
+                            onSuccess={handlePaymentSuccess}
+                            onError={(err) => toast.error("Payment failed. Try again", {
+                                duration: 3000,
+                                className: "text-lg font-semibold text-red-600"
+                            })}
+                            />
                         </div>
                     )}
                 </div>
