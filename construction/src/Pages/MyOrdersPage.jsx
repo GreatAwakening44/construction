@@ -68,12 +68,13 @@ const MyOrdersPage = () => {
                                     className='w-10 h-10 sm:w-12 sm:h-12 object-cover rounded-lg'/>
                                 </td>
                                 <td className="py-2 px-2 sm:py-4 sm:px-4 font-medium text-gray-900 whitespace-nowrap">
+                                    {/* This links it to the order/:id page*/}
                                     <Link 
-                                            to={`/order/${order._id}`}
+                                            to={`/order/:id`}
                                             className="hover:text-blue-600 hover:underline cursor-pointer"
                                         >
                                             #{order._id}
-                                        </Link>
+                                    </Link>
                                 </td>
                                 <td className="py-2 px-2 sm:py-4 sm:px-4">
                                     {new Date(order.createdAt).toLocaleDateString()}{""}
