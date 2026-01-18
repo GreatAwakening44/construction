@@ -1,13 +1,27 @@
-// This is the Paypal payment integration.
+// This is the Paypal payment integration, that handles payment.
 
 import React from 'react';
-import { PaypalButtons, PayPalScriptProvide, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 
-const PaypalButton = () => {
+const PaypalButton = ({ amount, onSuccess, onError }) => {
   return (
-    <PayPalScriptProvider options={{"clientd-id": 
-    ""}}>
-
+    <PayPalScriptProvider options={{"client-id": 
+    "AfF0mMZVqfWUuiGoRgyujHPoYCgnwtD41oXAtlGYA2EsW092jrt-YHNrphu23iXjFp47ikSwzV29-r9E"}}>
+        <PayPalButtons 
+        style={{layout: "vertical"}}
+        createOrder={(data, actions) => {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: amount.toString()
+                    }
+                }]
+            });
+        }}
+        onApprove={(data, actions) => {
+            return actions.order.capture().then(onSuccess)
+        }}
+        onError={onError} />
     </PayPalScriptProvider>
   )
 }
