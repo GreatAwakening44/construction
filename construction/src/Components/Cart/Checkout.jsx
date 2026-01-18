@@ -211,7 +211,7 @@ export const Checkout = () => {
                 <div className='mt-6 pt-6 border-t'>
                     <div className='flex justify-between text-xl font-bold'>
                         <span>Total:</span>
-                        <span>${cart.totalPrice}</span>
+                        <span>${cart.totalPrice.toLocaleString}</span>
                     </div>
                 </div>
             </div>
